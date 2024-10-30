@@ -8,7 +8,7 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 public class Util {
-    public static boolean titlePrinted = false;
+    public static volatile boolean titlePrinted = false;
 
     public static void printProgressBar(String processTitle, int currentStep, int totalSteps) {
         int progressBarLength = 50; // Largura da barra de progresso
@@ -40,7 +40,7 @@ public class Util {
         }
     }
 
-    public static void writeToFile(HashMap<Integer, Long> valores, String filePath) {
+    public static void writeToFile(HashMap<Integer, Long> valores, String filePath, Long totalTime) {
         Map<Integer, Long> sortedMap = valores.entrySet()
                 .stream()
                 .sorted(Map.Entry.comparingByKey())
@@ -52,6 +52,8 @@ public class Util {
                 ));
 
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath))) {
+            writer.write("Total time: " + totalTime + " ms");
+            writer.newLine();
             for (Map.Entry<Integer, Long> entry : sortedMap.entrySet()) {
                 writer.write("Reader count: " + entry.getKey() + ", Average time: " + entry.getValue() + " ms");
                 writer.newLine();

@@ -44,6 +44,8 @@ public class SophistMain {
     public static void sofistas(ExecutorService executor){
         List<CompletableFuture<Void>> tasks = new ArrayList<>();
 
+        long initialTime = System.currentTimeMillis();
+
         Util.printProgressBar("Sofistas", 0, 100);
         for (int i = 1; i <= 100; i++) {
             int readerCount = i;
@@ -56,9 +58,11 @@ public class SophistMain {
 
         CompletableFuture.allOf(tasks.toArray(new CompletableFuture[0])).join();
 
+        long endTime = System.currentTimeMillis();
+        long tempo = endTime - initialTime;
 
         System.out.println();
-        Util.writeToFile(valores, "sofistas.txt");
+        Util.writeToFile(valores, "sofistas.txt", tempo);
     }
 
     public static void rodarSofista(int readerCount){

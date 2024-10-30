@@ -43,6 +43,8 @@ public class PhilosopherMain {
     public static void filosofos(ExecutorService executor){
         List<CompletableFuture<Void>> tasks = new ArrayList<>();
 
+        long initialTime = System.currentTimeMillis();
+
         Util.printProgressBar("Filósofos", 0, 100);
         for (int i = 1; i <= 100; i++) {
             int readerCount = i;
@@ -55,9 +57,11 @@ public class PhilosopherMain {
 
         CompletableFuture.allOf(tasks.toArray(new CompletableFuture[0])).join();
 
+        long endTime = System.currentTimeMillis();
+        long tempo = endTime - initialTime;
 
         System.out.println();
-        Util.writeToFile(valores, "filosofos.txt");
+        Util.writeToFile(valores, "filosofos.txt", tempo);
     }
 
     public static void rodarFilosofo(int readerCount){
