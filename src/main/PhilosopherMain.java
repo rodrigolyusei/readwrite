@@ -37,7 +37,7 @@ public class PhilosopherMain {
     public static void filosofos(ExecutorService executor){
         List<CompletableFuture<Void>> tasks = new ArrayList<>();
 
-        Util.printProgressBar(0, 100);
+        Util.printProgressBar("Filósofos", 0, 100);
         for (int i = 1; i <= 100; i++) {
             int readerCount = i;
 
@@ -80,7 +80,7 @@ public class PhilosopherMain {
             valores.put(readerCount, media);
         }
         concluded++;
-        Util.printProgressBar(concluded, 100);
+        Util.printProgressBar("Filósofos",concluded, 100);
     }
 
 }

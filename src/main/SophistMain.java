@@ -37,7 +37,7 @@ public class SophistMain {
     public static void sofistas(ExecutorService executor){
         List<CompletableFuture<Void>> tasks = new ArrayList<>();
 
-        Util.printProgressBar(0, 100);
+        Util.printProgressBar("Sofistas", 0, 100);
         for (int i = 1; i <= 100; i++) {
             int readerCount = i;
 
@@ -80,6 +80,6 @@ public class SophistMain {
             valores.put(readerCount, media);
         }
         concluded++;
-        Util.printProgressBar(concluded, 100);
+        Util.printProgressBar("Sofistas", concluded, 100);
     }
 }

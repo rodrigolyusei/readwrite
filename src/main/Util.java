@@ -8,11 +8,19 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 public class Util {
-    public static void printProgressBar(int currentStep, int totalSteps) {
+    public static boolean titlePrinted = false;
+
+    public static void printProgressBar(String processTitle, int currentStep, int totalSteps) {
         int progressBarLength = 50; // Largura da barra de progresso
         int progress = (currentStep * progressBarLength) / totalSteps;
 
+        if (!titlePrinted) {
+            System.out.println("Processando " + processTitle + "!");
+            titlePrinted = true; // Marca que o título foi impresso
+        }
+
         StringBuilder bar = new StringBuilder();
+        bar.append("Processando ").append(processTitle).append("!");
         bar.append("\r["); // Retorna ao início da linha e abre a barra
         for (int i = 0; i < progressBarLength; i++) {
             if (i < progress) {
@@ -24,6 +32,12 @@ public class Util {
         bar.append("] ").append(currentStep * 100 / totalSteps).append("%"); // Exibe a porcentagem
 
         System.out.print(bar); // Atualiza a barra de progresso no terminal
+
+        try {
+            Thread.sleep(50); // Ajuste o tempo conforme necessário
+        } catch (InterruptedException e) {
+            Thread.currentThread().interrupt();
+        }
     }
 
     public static void writeToFile(HashMap<Integer, Long> valores, String filePath) {
