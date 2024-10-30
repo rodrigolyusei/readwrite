@@ -4,6 +4,7 @@ import dumb.DumbInfo;
 import dumb.Sophists;
 import readwriter.Philosophers;
 
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -17,7 +18,13 @@ public class SophistMain {
     private static final HashMap<Integer, Long> valores = new HashMap<>();
 
     public static void main(String[] args) {
-        FileReader.readFile();
+        try {
+            FileReader.readFile();
+        }
+        catch(FileNotFoundException e) {
+            System.err.println("Não existe o diretório de dados /data. Por favor, crie e coloque os arquivos necessários.");
+        }
+
 
         ExecutorService executor = Executors.newFixedThreadPool(Runtime.getRuntime().availableProcessors());
 
