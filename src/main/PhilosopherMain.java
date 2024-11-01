@@ -1,5 +1,6 @@
 package main;
 
+import readwriter.Info;
 import readwriter.Philosophers;
 
 

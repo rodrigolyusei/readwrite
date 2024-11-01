@@ -1,4 +1,4 @@
-package main;
+package readwriter;
 
 import java.util.ArrayList;
 import java.util.concurrent.Semaphore;

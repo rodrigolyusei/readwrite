@@ -1,6 +1,5 @@
 package dumb;
 
-import main.Info;
 import readwriter.Philosophers;
 
 public class DumbReader implements Runnable {

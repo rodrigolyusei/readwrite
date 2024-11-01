@@ -1,7 +1,5 @@
 package readwriter;
 
-import main.Info;
-
 public class Reader implements Runnable {
     public Info info;
 

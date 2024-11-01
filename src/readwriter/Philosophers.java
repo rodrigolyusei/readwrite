@@ -1,6 +1,5 @@
 package readwriter;
 
-import main.Info;
 import main.Thinker;
 
 import java.util.Collections;
