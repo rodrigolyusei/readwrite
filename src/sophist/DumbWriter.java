@@ -1,6 +1,6 @@
 package sophist;
 
-import philosopher.Philosophers;
+import main.Thinker;
 
 public class DumbWriter implements Runnable {
     public DumbInfo info;
@@ -14,7 +14,7 @@ public class DumbWriter implements Runnable {
         try {
             info.semaphore.acquire();
             for(int i = 0; i < 100; i++) {
-                int pos = Philosophers.getNexPos();
+                int pos = Thinker.getNexPos();
                 info.data.add(pos, "MODIFICADO");
             }
             Thread.sleep(1);

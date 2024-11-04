@@ -1,5 +1,7 @@
 package philosopher;
 
+import main.Thinker;
+
 public class SmartWriter implements Runnable {
     public SmartInfo info;
 
@@ -12,7 +14,7 @@ public class SmartWriter implements Runnable {
         try {
             info.semaphore.acquire();
             for(int i = 0; i < 100; i++) {
-                int pos = Philosophers.getNexPos();
+                int pos = Thinker.getNexPos();
                 info.data.add(pos, "MODIFICADO");
             }
             Thread.sleep(1);
