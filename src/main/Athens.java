@@ -7,7 +7,6 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 
 public class Athens {
-
     public static void main(String[] args) {
         try {
             FileReader.readFile();
@@ -16,7 +15,6 @@ public class Athens {
             System.err.println("Não existe o diretório de dados /data. Por favor, crie e coloque os arquivos necessários.");
             System.exit(1);
         }
-
 
         ExecutorService executor = Executors.newFixedThreadPool(Runtime.getRuntime().availableProcessors());
 

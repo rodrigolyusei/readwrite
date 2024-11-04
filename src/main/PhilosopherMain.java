@@ -1,9 +1,5 @@
 package main;
 
-import readwriter.Info;
-import readwriter.Philosophers;
-
-
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -12,9 +8,10 @@ import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
+import philosopher.SmartInfo;
+import philosopher.Philosophers;
 
 public class PhilosopherMain {
-
     private static int concluded = 0;
     private static final HashMap<Integer, Long> valores = new HashMap<>();
 
@@ -69,7 +66,7 @@ public class PhilosopherMain {
         long total = 0;
 
         for (int j = 0; j < 50; j++) {
-            Info info = new Info(FileReader.data);
+            SmartInfo info = new SmartInfo(FileReader.data);
             Philosophers phi = new Philosophers();
 
             // inicializa o array de filósofos;
@@ -93,5 +90,4 @@ public class PhilosopherMain {
         concluded++;
         Util.printProgressBar("Filósofos",concluded, 100);
     }
-
 }

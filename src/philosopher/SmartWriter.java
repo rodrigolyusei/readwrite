@@ -1,17 +1,15 @@
-package dumb;
+package philosopher;
 
-import readwriter.Philosophers;
+public class SmartWriter implements Runnable {
+    public SmartInfo info;
 
-public class DumbWriter implements Runnable {
-    public DumbInfo info;
-
-    public DumbWriter(DumbInfo info) {
+    public SmartWriter(SmartInfo info){
         this.info = info;
     }
 
     @Override
     public void run() {
-        try{
+        try {
             info.semaphore.acquire();
             for(int i = 0; i < 100; i++) {
                 int pos = Philosophers.getNexPos();
@@ -19,7 +17,7 @@ public class DumbWriter implements Runnable {
             }
             Thread.sleep(1);
             info.semaphore.release();
+        } catch(InterruptedException _) {
         }
-        catch (InterruptedException _) {}
     }
 }

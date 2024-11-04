@@ -1,13 +1,12 @@
-package dumb;
+package sophist;
 
 import main.Thinker;
-
-
 import java.util.Collections;
 
 public class Sophists extends Thinker {
-
-    public Sophists(){ super(); }
+    public Sophists(){
+        super();
+    }
 
     public void init(int qtd_readers, DumbInfo info){
         for(int i = 0; i < qtd_readers; i++){

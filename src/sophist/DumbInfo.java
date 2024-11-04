@@ -1,4 +1,4 @@
-package dumb;
+package sophist;
 
 import java.util.ArrayList;
 import java.util.concurrent.Semaphore;

@@ -1,7 +1,6 @@
-package readwriter;
+package philosopher;
 
 import main.Thinker;
-
 import java.util.Collections;
 
 public class Philosophers extends Thinker {
@@ -9,14 +8,14 @@ public class Philosophers extends Thinker {
         super();
     }
 
-    public void init(int qtd_readers, Info info){
+    public void init(int qtd_readers, SmartInfo info){
         for(int i = 0; i < qtd_readers; i++){
-            Thread v = new Thread(new Reader(info));
+            Thread v = new Thread(new SmartReader(info));
             thinkers.add(v);
         }
 
         for(int i = 0; i < 100-qtd_readers; i++){
-            Thread v = new Thread(new Writer(info));
+            Thread v = new Thread(new SmartWriter(info));
             thinkers.add(v);
         }
         Collections.shuffle(thinkers);

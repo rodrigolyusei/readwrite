@@ -1,9 +1,5 @@
 package main;
 
-import dumb.DumbInfo;
-import dumb.Sophists;
-import readwriter.Philosophers;
-
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -12,6 +8,8 @@ import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
+import sophist.DumbInfo;
+import sophist.Sophists;
 
 public class SophistMain {
     private static int concluded = 0;
@@ -24,7 +22,6 @@ public class SophistMain {
         catch(FileNotFoundException e) {
             System.err.println("Não existe o diretório de dados /data. Por favor, crie e coloque os arquivos necessários.");
         }
-
 
         ExecutorService executor = Executors.newFixedThreadPool(Runtime.getRuntime().availableProcessors());
 
