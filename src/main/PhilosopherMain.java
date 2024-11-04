@@ -44,7 +44,7 @@ public class PhilosopherMain {
         long initialTime = System.currentTimeMillis();
 
         Util.printProgressBar("Filósofos", 0, 100);
-        for (int i = 1; i <= 100; i++) {
+        for (int i = 0; i <= 100; i++) {
             int readerCount = i;
 
             CompletableFuture<Void> task = CompletableFuture.runAsync(
